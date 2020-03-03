@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+<RaceResult xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <participantResults>
+    <ParticipantResult>
+      <PersonInfo id="20" country="PAN">
+        <Name>Эраст Долгоруков</Name>
+      </PersonInfo>
+      <Id>9</Id>
+      <NetTime xsi:nil="true" />
+      <Irm>Withdrawn</Irm>
+    </ParticipantResult>
+    <ParticipantResult>
+      <PersonInfo id="11" country="COD">
+        <Name>冨重 翔</Name>
+      </PersonInfo>
+      <Id>1</Id>
+      <NetTime xsi:nil="true" />
+      <Irm>Fault</Irm>
+    </ParticipantResult>
+    <ParticipantResult>
+      <PersonInfo id="27" country="FJI">
+        <Name>ساسان مسگر</Name>
+      </PersonInfo>
+      <Id>7</Id>
+      <NetTime xsi:nil="true" />
+      <Irm>Abandon</Irm>
+    </ParticipantResult>
+    <ParticipantResult>
+      <PersonInfo id="6" country="UZB">
+        <Name>Emilia Häkkinen</Name>
+      </PersonInfo>
+      <Id>2</Id>
+      <NetTime xsi:nil="true" />
+      <Irm>Fault</Irm>
+    </ParticipantResult>
+    <ParticipantResult>
+      <PersonInfo id="3" country="AFG">
+        <Name>孟孟 哲</Name>
+      </PersonInfo>
+      <Id>4</Id>
+      <NetTime xsi:nil="true" />
+      <Irm>Abandon</Irm>
+    </ParticipantResult>
+    <ParticipantResult>
+      <PersonInfo id="29" country="JER">
+        <Name>Afamefula Ijendu</Name>
+      </PersonInfo>
+      <Id>8</Id>
+      <NetTime>95</NetTime>
+      <Irm>None</Irm>
+    </ParticipantResult>
+    <ParticipantResult>
+      <PersonInfo id="18" country="RUS">
+        <Name>Simona Říhová</Name>
+      </PersonInfo>
+      <Id>6</Id>
+      <NetTime>95</NetTime>
+      <Irm>None</Irm>
+    </ParticipantResult>
+    <ParticipantResult>
+      <PersonInfo id="17" country="ZAI_EX">
+        <Name>داریس طایی</Name>
+      </PersonInfo>
+      <Id>5</Id>
+      <NetTime>97.6</NetTime>
+      <Irm>None</Irm>
+    </ParticipantResult>
+    <ParticipantResult>
+      <PersonInfo id="4" country="PAR">
+        <Name>Edward Demon Darkblade</Name>
+      </PersonInfo>
+      <Id>3</Id>
+      <NetTime>99.1</NetTime>
+      <Irm>None</Irm>
+    </ParticipantResult>
+    <ParticipantResult>
+      <PersonInfo id="32" country="ISR">
+        <Name>Милена Капустина</Name>
+      </PersonInfo>
+      <Id>10</Id>
+      <NetTime>99.1</NetTime>
+      <Irm>None</Irm>
+    </ParticipantResult>
+  </participantResults>
+  <StartTime>2020-03-03T18:09:00.1470955+01:00</StartTime>
+</RaceResult>
