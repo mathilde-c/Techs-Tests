@@ -1,0 +1,905 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{DA1DCF33-78D6-4CE9-A3C1-7D580746591B}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>WPFDesktopSimple</RootNamespace>
+    <AssemblyName>WPFDesktopSimple</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="ThirdPartySimulator, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>dll\ThirdPartySimulator.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WindowsBase.4.6.1055.0\lib\WindowsBase.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Comparers\ParticipantResultComparer.cs" />
+    <Compile Include="Converters\CountryToUriFlagConverter.cs" />
+    <Compile Include="Converters\EndingEventToColorConverter.cs" />
+    <Compile Include="Converters\NetTimeValueConverter.cs" />
+    <Compile Include="Converters\VisibilityOnStringEmptyConverter.cs" />
+    <Compile Include="Helpers\FileHelperXml.cs" />
+    <Compile Include="Helpers\FileHelperFactory.cs" />
+    <Compile Include="Helpers\IFileHelper.cs" />
+    <Compile Include="Helpers\IFileHelperFactory.cs" />
+    <Compile Include="Helpers\IInteractionHelper.cs" />
+    <Compile Include="Helpers\InteractionHelperDialog.cs" />
+    <Compile Include="Models\Participant.cs" />
+    <Compile Include="Models\ParticipantResult.cs" />
+    <Compile Include="Models\RaceResult.cs" />
+    <Compile Include="Events\RaceEventArg.cs" />
+    <Compile Include="ViewModels\IRaceHomeViewModel.cs" />
+    <Compile Include="ViewModels\RaceHomeViewModel.cs" />
+    <Compile Include="Views\RaceHome.xaml.cs">
+      <DependentUpon>RaceHome.xaml</DependentUpon>
+    </Compile>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Views\RaceHome.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Models\Person.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\AFG.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\AHO.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\AIA.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\ALB.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\ALG.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\AND.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\ANG.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\ANG_gola.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\ANT.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\ARG.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\ARM.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\ARU.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\ASA.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\AUS.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\AUT.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\AZE.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\BAH.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\BAM.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\BAN.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\BAR.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\BDI.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\BEL.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\BEN.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\BER.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\BHU.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\BIH.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\BIZ.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\BLR.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\BOL.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\BOT.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\BRA.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\BRN.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\BRU.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\BUL.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\BUR.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\BVI.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\CAF.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\CAM.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\CAN.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\CAY.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\CGO.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\CHA.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\CHI.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\CHN.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\CIV.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\CMR.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\COD.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\COK.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\COL.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\COM.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\CPV.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\CRC.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\CRO.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\CUB.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\CYP.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\CZE.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\DDR_EX.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\DEN.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\DJI.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\DMA.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\DMN.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\DOM.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\ECU.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\EGY.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\ENG.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\ERI.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\ESA.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\ESP.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\EST.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\ETH.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\EUR.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\FAI.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\FAR.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\FIJ.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\FIN.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\FJI.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\FRA.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\FRG.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\FRO.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\FSM.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\GAB.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\GAM.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\GBR.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\GBS.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\GDR.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\GEO.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\GEQ.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\GER.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\GHA.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\GIB.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\GRE.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\GRN.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\GUA.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\GUE.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\GUI.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\GUM.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\GUY.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\HAI.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\HKG.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\HON.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\HUN.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\INA.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\IND.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\IOM.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\IRI.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\IRL.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\IRQ.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\ISL.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\ISR.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\ISV.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\ITA.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\IVB.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\JAM.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\JER.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\JOR.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\JPN.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\KAZ.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\KEN.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\KGZ.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\KIR.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\KOR.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\KOS.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\KRI.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\KSA.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\KUW.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\LAO.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\LAT.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\LBA.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\LBR.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\LCA.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\LES.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\LIB.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\LIE.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\LTU.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\LUX.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\MAC.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\MAD.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\MAR.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\MAS.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\MAW.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\MDA.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\MDV.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\MEX.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\MGL.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\MHL.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\MIL.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\MKD.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\MLD.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\MLI.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\MLL.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\MLT.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\MNE.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\MNT.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\MON.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\MOZ.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\MRI.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\MSH.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\MTN.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\MYA.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\MZA.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\NAM.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\NCA.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\NED.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\NEP.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\NFI.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\NGR.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\NIG.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\NIR.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\NIU.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\NMA.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\NOR.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\NRU.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\NZL.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\OMA.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\OMN.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\PAK.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\PAN.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\PAR.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\PER.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\PHI.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\PLE.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\PLW.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\PNG.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\POL.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\POR.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\PRK.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\PUR.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\QAT.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\RMI.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\ROM.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\ROU.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\RSA.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\RUS.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\RWA.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\SAM.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\SCG.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\SCO.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\SEN.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\SEY.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\SHE.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\SIN.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\SKN.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\SLE.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\SLO.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\SMN.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\SMR.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\SOL.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\SOM.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\SRB.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\SRI.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\STL.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\STP.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\SUD.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\SUI.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\SUR.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\SVG.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\SVK.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\SWE.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\SWZ.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\SYR.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\TAH.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\TAN.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\TCH.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\TCI.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\TCN.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\TGA.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\THA.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\TJK.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\TKM.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\TKS.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\TLS.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\TMP.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\TOG.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\TON.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\TPE.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\TPE_JO.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\TRI.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\TUN.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\TUR.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\TUV.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\TWN.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\UAE.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\UGA.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\UKR.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\URS_EX.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\URU.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\USA.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\UZB.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\VAN.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\VEN.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\VIE.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\VIN.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\WAL.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\YEM.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\YUG.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\ZAI_EX.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\ZAM.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\ZIM.bmp" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

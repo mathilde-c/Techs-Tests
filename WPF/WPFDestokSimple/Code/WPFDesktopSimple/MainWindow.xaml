@@ -1,0 +1,14 @@
+﻿<Window x:Class="WPFDesktopSimple.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:views="clr-namespace:WPFDesktopSimple.Views"
+        mc:Ignorable="d"
+        Title="Race Simulator" Height="600" Width="1100">
+ 
+
+    <Grid>
+        <views:RaceHome x:Name="RaceHomeControl"/>
+    </Grid>
+</Window>
