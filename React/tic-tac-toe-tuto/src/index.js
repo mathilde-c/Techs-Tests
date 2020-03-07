@@ -12,15 +12,6 @@ function Square(props) {
 };
 
 class Board extends React.PureComponent {
-    /*constructor(props) {
-        super(props);
-        this.state = {
-            squares: Array(9).fill(null),
-            xPlaysNext: true,
-            won: false,
-        }
-    }*/
-
     renderSquare(i){
         return <Square value={this.props.squares[i]} 
                         onClick={() => this.props.onClick(i)}/>;
@@ -60,6 +51,7 @@ class Game extends React.PureComponent {
                     won: false,
                 }
             ],
+            stepNumber: 0,
         }
     }
 
@@ -86,13 +78,14 @@ class Game extends React.PureComponent {
     }
 
     handleClick(i) {
-        const history = this.state.history.slice();
-        const curr = this.state.history[history.length - 1];
+        const curr = this.state.history[this.state.stepNumber];
 
         if (curr.won !== false
             || curr.squares[i]){
             return;
         }
+        
+        const history = this.state.history.slice(0, this.state.stepNumber + 1);
 
         const squares = curr.squares.slice();
         squares[i] = curr.xPlaysNext ? 'X' : 'O';
@@ -102,15 +95,31 @@ class Game extends React.PureComponent {
             won: this.checkWinner(squares),
         };
 
-        history.push(newState);
         this.setState({
-            history: history,
+            history: history.concat([newState]),
+            stepNumber: this.state.stepNumber + 1,
+        });
+    }
+
+    jumpTo(step){
+        this.setState({
+            stepNumber: step,
+        });
+    }
+
+    renderPastMoves(history){
+        return history.map((step, move) => {
+            const label = `Go to ${(move ? 'move #' + move : 'game start')}`;
+            return (
+              <li key={move}>
+                <button onClick={() => this.jumpTo(move)}>{label}</button>
+              </li>
+            );
         });
     }
 
     render() {
-        const history = this.state.history;
-        const curr = history[history.length - 1];
+        const curr = this.state.history[this.state.stepNumber];
         const status = curr.won !== false
         ? 'Winner: ' + curr.won
         : `Next player: ${(curr.xPlaysNext ? 'X' : 'O')}`;
@@ -123,7 +132,7 @@ class Game extends React.PureComponent {
             </div>
             <div className="game-info">
                 <div>{status}</div>
-                <ol>{/* TODO */}</ol>
+                <ol>{this.renderPastMoves(this.state.history)}</ol>
             </div>
         </div>
         );
