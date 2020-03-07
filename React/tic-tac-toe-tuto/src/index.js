@@ -12,12 +12,54 @@ function Square(props) {
 };
 
 class Board extends React.PureComponent {
-    constructor(props) {
+    /*constructor(props) {
         super(props);
         this.state = {
             squares: Array(9).fill(null),
             xPlaysNext: true,
             won: false,
+        }
+    }*/
+
+    renderSquare(i){
+        return <Square value={this.props.squares[i]} 
+                        onClick={() => this.props.onClick(i)}/>;
+    }
+
+    render (){
+        return (
+            <div>
+                <div className="board-row">
+                    {this.renderSquare(0)}
+                    {this.renderSquare(1)}
+                    {this.renderSquare(2)}
+                </div>
+                <div className="board-row">
+                    {this.renderSquare(3)}
+                    {this.renderSquare(4)}
+                    {this.renderSquare(5)}
+                </div>
+                <div className="board-row">
+                    {this.renderSquare(6)}
+                    {this.renderSquare(7)}
+                    {this.renderSquare(8)}
+                </div>
+            </div>
+        );
+    }
+}
+
+class Game extends React.PureComponent {
+    constructor (props) {
+        super(props);
+        this.state = {
+            history: [
+                {
+                    squares: Array(9).fill(null),
+                    xPlaysNext: true,
+                    won: false,
+                }
+            ],
         }
     }
 
@@ -44,62 +86,43 @@ class Board extends React.PureComponent {
     }
 
     handleClick(i) {
-        if (this.state.won !== false
-            || this.state.squares[i]){
+        const history = this.state.history.slice();
+        const curr = this.state.history[history.length - 1];
+
+        if (curr.won !== false
+            || curr.squares[i]){
             return;
         }
 
-        const squares = this.state.squares.slice();
-        squares[i] = this.state.xPlaysNext ? 'X' : 'O';
-        this.setState({
+        const squares = curr.squares.slice();
+        squares[i] = curr.xPlaysNext ? 'X' : 'O';
+        const newState = {
             squares: squares,
-            xPlaysNext: !this.state.xPlaysNext,
+            xPlaysNext: !curr.xPlaysNext,
             won: this.checkWinner(squares),
+        };
+
+        history.push(newState);
+        this.setState({
+            history: history,
         });
     }
 
-    renderSquare(i){
-        return <Square value={this.state.squares[i]} 
-                        onClick={() => this.handleClick(i)}/>;
-    }
-
-    render (){
-        const status = this.state.won !== false
-        ? 'Winner: ' + this.state.won
-        : `Next player: ${(this.state.xPlaysNext ? 'X' : 'O')}`;
-
-        return (
-            <div>
-                <div className="status">{status}</div>
-                <div className="board-row">
-                    {this.renderSquare(0)}
-                    {this.renderSquare(1)}
-                    {this.renderSquare(2)}
-                </div>
-                <div className="board-row">
-                    {this.renderSquare(3)}
-                    {this.renderSquare(4)}
-                    {this.renderSquare(5)}
-                </div>
-                <div className="board-row">
-                    {this.renderSquare(6)}
-                    {this.renderSquare(7)}
-                    {this.renderSquare(8)}
-                </div>
-            </div>
-        );
-    }
-}
-
-class Game extends React.PureComponent {
     render() {
+        const history = this.state.history;
+        const curr = history[history.length - 1];
+        const status = curr.won !== false
+        ? 'Winner: ' + curr.won
+        : `Next player: ${(curr.xPlaysNext ? 'X' : 'O')}`;
+
         return (
         <div className="game">
             <div className="game-board">
-                <Board />
+                <Board squares={curr.squares}
+                        onClick={(i) => this.handleClick(i)}/>
             </div>
             <div className="game-info">
-                <div>{/* status */}</div>
+                <div>{status}</div>
                 <ol>{/* TODO */}</ol>
             </div>
         </div>
