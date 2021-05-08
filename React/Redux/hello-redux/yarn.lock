@@ -1476,11 +1476,6 @@ chownr@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/chownr/-/chownr-1.0.1.tgz#e2a75042a9551908bebd25b8523d5f9769d79181"
 
-chownr@^1.1.1:
-  version "1.1.4"
-  resolved "https://registry.yarnpkg.com/chownr/-/chownr-1.1.4.tgz#6fc9d7b42d32a583596337666e7d08084da2cc6b"
-  integrity sha512-jJ0bqzaylmJtVnNgzTeSOs8DPavpbYgEr/b0YL8/2GO3xJEhInFmhKMUnEJQjZumK7KXGFhUy89PrsJWlakBVg==
-
 ci-info@^1.0.0:
   version "1.1.3"
   resolved "https://registry.yarnpkg.com/ci-info/-/ci-info-1.1.3.tgz#710193264bb05c77b8c90d02f5aaf22216a667b2"
@@ -1632,10 +1627,6 @@ combined-stream@1.0.6, combined-stream@~1.0.5:
 commander@2.15.x, commander@^2.11.0, commander@~2.15.0:
   version "2.15.1"
   resolved "https://registry.yarnpkg.com/commander/-/commander-2.15.1.tgz#df46e867d0fc2aec66a34662b406a9ccafff5b0f"
-
-commander@~2.20.3:
-  version "2.20.3"
-  resolved "https://registry.yarnpkg.com/commander/-/commander-2.20.3.tgz#fd485e84c03eb4881c20722ba48035e8531aeb33"
 
 commondir@^1.0.1:
   version "1.0.1"
@@ -1985,7 +1976,7 @@ debug@^3.1.0:
   dependencies:
     ms "2.0.0"
 
-debug@^3.1.1, debug@^3.2.5, debug@^3.2.6:
+debug@^3.1.1, debug@^3.2.5:
   version "3.2.6"
   resolved "https://registry.yarnpkg.com/debug/-/debug-3.2.6.tgz#e83d17de16d8a7efb7717edbe5fb10135eee629b"
   integrity sha512-mel+jf7nrtEl5Pn1Qx46zARXKDpBbvzezse7p7LqINmdoIk8PYP5SySaxEmYv6TZ0JyEKA1hsCId6DIhgITtWQ==
@@ -2015,11 +2006,6 @@ deep-equal@^1.0.1:
 deep-extend@^0.5.1:
   version "0.5.1"
   resolved "https://registry.yarnpkg.com/deep-extend/-/deep-extend-0.5.1.tgz#b894a9dd90d3023fbf1c55a394fb858eb2066f1f"
-
-deep-extend@^0.6.0:
-  version "0.6.0"
-  resolved "https://registry.yarnpkg.com/deep-extend/-/deep-extend-0.6.0.tgz#c4fa7c95404a17a9c3e8ca7e1537312b736330ac"
-  integrity sha512-LOHxIOaPYdHlJRtCQfDIVZtfw/ufM8+rVj649RIHzcm/vGwQRXFt6OPqIFWsm2XEMrNIEtWR64sY1LEKD2vAOA==
 
 deep-is@~0.1.3:
   version "0.1.3"
@@ -3244,12 +3230,14 @@ handle-thing@^2.0.0:
   integrity sha512-d4sze1JNC454Wdo2fkuyzCr6aHcbL6PGGuFAz0Li/NcOm1tCHGnWDRmJP85dh9IhQErTc2svWFEX5xHIOo//kQ==
 
 handlebars@^4.0.3:
-  version "4.7.3"
-  resolved "https://registry.yarnpkg.com/handlebars/-/handlebars-4.7.3.tgz#8ece2797826886cf8082d1726ff21d2a022550ee"
+  version "4.7.7"
+  resolved "https://registry.yarnpkg.com/handlebars/-/handlebars-4.7.7.tgz#9ce33416aad02dbd6c8fafa8240d5d98004945a1"
+  integrity sha512-aAcXm5OAfE/8IXkcZvCepKU3VzW1/39Fb5ZuqMtgI/hT8X2YgoMvBY5dLhq/cpOvw7Lk1nK/UF71aLG/ZnVYRA==
   dependencies:
+    minimist "^1.2.5"
     neo-async "^2.6.0"
-    optimist "^0.6.1"
     source-map "^0.6.1"
+    wordwrap "^1.0.0"
   optionalDependencies:
     uglify-js "^3.1.4"
 
@@ -4808,13 +4796,10 @@ minimist@0.0.8:
   version "0.0.8"
   resolved "https://registry.yarnpkg.com/minimist/-/minimist-0.0.8.tgz#857fcabfc3397d2625b8228262e86aa7a011b05d"
 
-minimist@^1.1.1, minimist@^1.1.3, minimist@^1.2.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/minimist/-/minimist-1.2.0.tgz#a35008b20f41383eec1fb914f4cd5df79a264284"
-
-minimist@~0.0.1:
-  version "0.0.10"
-  resolved "https://registry.yarnpkg.com/minimist/-/minimist-0.0.10.tgz#de3f98543dbf96082be48ad1a0c7cda836301dcf"
+minimist@^1.1.1, minimist@^1.1.3, minimist@^1.2.0, minimist@^1.2.5:
+  version "1.2.5"
+  resolved "https://registry.yarnpkg.com/minimist/-/minimist-1.2.5.tgz#67d66014b66a6a8aaa0c083c5fd58df4e4e97602"
+  integrity sha512-FM9nNUYrRBAELZQT3xeZQ7fmMOBg6nWNmJKTcgsJeaLstP/UODVpGsr5OhXhhXg6f+qtJ8uiZ+PUxkDWcgIXLw==
 
 minipass@^2.2.1, minipass@^2.2.4:
   version "2.3.2"
@@ -4823,26 +4808,11 @@ minipass@^2.2.1, minipass@^2.2.4:
     safe-buffer "^5.1.1"
     yallist "^3.0.0"
 
-minipass@^2.8.6, minipass@^2.9.0:
-  version "2.9.0"
-  resolved "https://registry.yarnpkg.com/minipass/-/minipass-2.9.0.tgz#e713762e7d3e32fed803115cf93e04bca9fcc9a6"
-  integrity sha512-wxfUjg9WebH+CUDX/CdbRlh5SmfZiy/hpkxaRI16Y9W56Pa75sWgd/rvFilSgrauD9NyFymP/+JFV3KwzIsJeg==
-  dependencies:
-    safe-buffer "^5.1.2"
-    yallist "^3.0.0"
-
 minizlib@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/minizlib/-/minizlib-1.1.0.tgz#11e13658ce46bc3a70a267aac58359d1e0c29ceb"
   dependencies:
     minipass "^2.2.1"
-
-minizlib@^1.2.1:
-  version "1.3.3"
-  resolved "https://registry.yarnpkg.com/minizlib/-/minizlib-1.3.3.tgz#2290de96818a34c29551c8a8d301216bd65a861d"
-  integrity sha512-6ZYMOEnmVsdCeTJVE0W9ZD+pVnE8h9Hma/iOwwRDsdQoePpoX56/8B6z3P9VNwppJuBKNRuFDRNRqRWexT9G9Q==
-  dependencies:
-    minipass "^2.9.0"
 
 mixin-deep@^1.2.0:
   version "1.3.2"
@@ -4924,15 +4894,6 @@ needle@^2.2.0:
     iconv-lite "^0.4.4"
     sax "^1.2.4"
 
-needle@^2.2.1:
-  version "2.3.3"
-  resolved "https://registry.yarnpkg.com/needle/-/needle-2.3.3.tgz#a041ad1d04a871b0ebb666f40baaf1fb47867117"
-  integrity sha512-EkY0GeSq87rWp1hoq/sH/wnTWgFVhYlnIkbJ0YJFfRgEFlz2RraCjBpFQ+vrEgEdp0ThfyHADmkChEhcb7PKyw==
-  dependencies:
-    debug "^3.2.6"
-    iconv-lite "^0.4.4"
-    sax "^1.2.4"
-
 negotiator@0.6.1:
   version "0.6.1"
   resolved "https://registry.yarnpkg.com/negotiator/-/negotiator-0.6.1.tgz#2b327184e8992101177b28563fb5e7102acd0ca9"
@@ -4943,8 +4904,9 @@ negotiator@0.6.2:
   integrity sha512-hZXc7K2e+PgeI1eDBe/10Ard4ekbfrrqG8Ep+8Jmf4JID2bNg7NvCPOZN+kfF574pFQI7mum2AUqDidoKqcTOw==
 
 neo-async@^2.5.0, neo-async@^2.6.0:
-  version "2.6.1"
-  resolved "https://registry.yarnpkg.com/neo-async/-/neo-async-2.6.1.tgz#ac27ada66167fa8849a6addd837f6b189ad2081c"
+  version "2.6.2"
+  resolved "https://registry.yarnpkg.com/neo-async/-/neo-async-2.6.2.tgz#b4aafb93e3aeb2d8174ca53cf163ab7d7308305f"
+  integrity sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==
 
 next-tick@1:
   version "1.0.0"
@@ -5013,22 +4975,6 @@ node-notifier@^5.0.2:
     semver "^5.4.1"
     shellwords "^0.1.1"
     which "^1.3.0"
-
-node-pre-gyp@*:
-  version "0.14.0"
-  resolved "https://registry.yarnpkg.com/node-pre-gyp/-/node-pre-gyp-0.14.0.tgz#9a0596533b877289bcad4e143982ca3d904ddc83"
-  integrity sha512-+CvDC7ZttU/sSt9rFjix/P05iS43qHCOOGzcr3Ry99bXG7VX953+vFyEuph/tfqoYu8dttBkE86JSKBO2OzcxA==
-  dependencies:
-    detect-libc "^1.0.2"
-    mkdirp "^0.5.1"
-    needle "^2.2.1"
-    nopt "^4.0.1"
-    npm-packlist "^1.1.6"
-    npmlog "^4.0.2"
-    rc "^1.2.7"
-    rimraf "^2.6.1"
-    semver "^5.3.0"
-    tar "^4.4.2"
 
 node-pre-gyp@^0.10.0:
   version "0.10.0"
@@ -5211,13 +5157,6 @@ opn@^5.5.0:
   integrity sha512-PqHpggC9bLV0VeWcdKhkpxY+3JTzetLSqTCWL/z/tFIbI6G8JCjondXklT1JinczLz2Xib62sSp0T/gKT4KksA==
   dependencies:
     is-wsl "^1.1.0"
-
-optimist@^0.6.1:
-  version "0.6.1"
-  resolved "https://registry.yarnpkg.com/optimist/-/optimist-0.6.1.tgz#da3ea74686fa21a19a111c326e90eb15a0196686"
-  dependencies:
-    minimist "~0.0.1"
-    wordwrap "~0.0.2"
 
 optionator@^0.8.1, optionator@^0.8.2:
   version "0.8.2"
@@ -6027,16 +5966,6 @@ rc@^1.0.1, rc@^1.1.6, rc@^1.1.7:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
-rc@^1.2.7:
-  version "1.2.8"
-  resolved "https://registry.yarnpkg.com/rc/-/rc-1.2.8.tgz#cd924bf5200a075b83c188cd6b9e211b7fc0d3ed"
-  integrity sha512-y3bGgqKj3QBdxLbLkomlohkvsA8gdAiUQlSBJnBhfn+BPxg4bc62d8TcBW15wavDfgexCgccckhcZvywyQYPOw==
-  dependencies:
-    deep-extend "^0.6.0"
-    ini "~1.3.0"
-    minimist "^1.2.0"
-    strip-json-comments "~2.0.1"
-
 react-dev-utils@^5.0.1:
   version "5.0.3"
   resolved "https://registry.yarnpkg.com/react-dev-utils/-/react-dev-utils-5.0.3.tgz#92f97668f03deb09d7fa11ea288832a8c756e35e"
@@ -6790,6 +6719,7 @@ source-map@0.5.x, source-map@^0.5.3, source-map@^0.5.6, source-map@^0.5.7, sourc
 source-map@^0.6.1, source-map@~0.6.1:
   version "0.6.1"
   resolved "https://registry.yarnpkg.com/source-map/-/source-map-0.6.1.tgz#74722af32e9614e9c287a8d0bbde48b5e2f1a263"
+  integrity sha512-UjgapumWlbMhkBgzT7Ykc5YXUT46F0iKu8SGXq0bcwP5dz/h0Plj6enJqjz1Zbq2l5WaqYnrVbwWOWMyF3F47g==
 
 spdx-correct@^3.0.0:
   version "3.0.0"
@@ -7082,19 +7012,6 @@ tar@^4:
     safe-buffer "^5.1.2"
     yallist "^3.0.2"
 
-tar@^4.4.2:
-  version "4.4.13"
-  resolved "https://registry.yarnpkg.com/tar/-/tar-4.4.13.tgz#43b364bc52888d555298637b10d60790254ab525"
-  integrity sha512-w2VwSrBoHa5BsSyH+KxEqeQBAllHhccyMFVHtGtdMpF4W7IRWfZjFiQceJPChOeTsSDVUpER2T8FA93pr0L+QA==
-  dependencies:
-    chownr "^1.1.1"
-    fs-minipass "^1.2.5"
-    minipass "^2.8.6"
-    minizlib "^1.2.1"
-    mkdirp "^0.5.0"
-    safe-buffer "^5.1.2"
-    yallist "^3.0.3"
-
 term-size@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/term-size/-/term-size-1.2.0.tgz#458b83887f288fc56d6fffbfad262e26638efa69"
@@ -7257,11 +7174,9 @@ uglify-js@^2.8.29:
     uglify-to-browserify "~1.0.0"
 
 uglify-js@^3.1.4:
-  version "3.8.0"
-  resolved "https://registry.yarnpkg.com/uglify-js/-/uglify-js-3.8.0.tgz#f3541ae97b2f048d7e7e3aa4f39fd8a1f5d7a805"
-  dependencies:
-    commander "~2.20.3"
-    source-map "~0.6.1"
+  version "3.13.5"
+  resolved "https://registry.yarnpkg.com/uglify-js/-/uglify-js-3.13.5.tgz#5d71d6dbba64cf441f32929b1efce7365bb4f113"
+  integrity sha512-xtB8yEqIkn7zmOyS2zUNBsYCBRhDkvlNxMMY2smuJ/qA8NCHeQvKCF3i9Z4k8FJH4+PJvZRtMrPynfZ75+CSZw==
 
 uglify-to-browserify@~1.0.0:
   version "1.0.2"
@@ -7668,11 +7583,7 @@ wordwrap@0.0.2:
   version "0.0.2"
   resolved "https://registry.yarnpkg.com/wordwrap/-/wordwrap-0.0.2.tgz#b79669bb42ecb409f83d583cad52ca17eaa1643f"
 
-wordwrap@~0.0.2:
-  version "0.0.3"
-  resolved "https://registry.yarnpkg.com/wordwrap/-/wordwrap-0.0.3.tgz#a3d5da6cd5c0bc0008d37234bbaf1bed63059107"
-
-wordwrap@~1.0.0:
+wordwrap@^1.0.0, wordwrap@~1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/wordwrap/-/wordwrap-1.0.0.tgz#27584810891456a4171c8d0226441ade90cbcaeb"
 
@@ -7742,11 +7653,6 @@ yallist@^2.1.2:
 yallist@^3.0.0, yallist@^3.0.2:
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/yallist/-/yallist-3.0.2.tgz#8452b4bb7e83c7c188d8041c1a837c773d6d8bb9"
-
-yallist@^3.0.3:
-  version "3.1.1"
-  resolved "https://registry.yarnpkg.com/yallist/-/yallist-3.1.1.tgz#dbb7daf9bfd8bac9ab45ebf602b8cbad0d5d08fd"
-  integrity sha512-a4UGQaWPH59mOXUYnAG2ewncQS4i4F43Tv3JoAM+s2VDAmS9NsK8GpDMLrCHPksFT7h3K6TOoUNn2pb7RoXx4g==
 
 yargs-parser@^11.1.1:
   version "11.1.1"
